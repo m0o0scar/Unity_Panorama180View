@@ -95,8 +95,6 @@ namespace Panorama180View
 
                 sphereMaterial.SetTexture("_MainTex", image);
                 sphereMaterial.SetInt("_Mode", (int)projectonType);
-                sphereMaterial.SetInt("_TransitionType", 0);
-
             } else {
                 //// VideoClipのパラメータを渡す.
                 //sphere.SetActive(video != null);

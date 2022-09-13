@@ -42,7 +42,6 @@ Shader "Unlit/Panorama180View/panoramaSphereRendering"
             float _Intensity;
 			int _Mode;			// 0 : Equirectangular360 TopAndBottom、1 : Equirectangular180 SideBySide、2 : FishEye180 SideBySide.
 
-			int _TransitionType;    // 0 : 遷移しない、 1 : フェードイン、 2 : フェードアウト、 3 : ブレンド.
 			sampler2D _DestTex;  	// 状態遷移時の移行先のテクスチャ.
 			float _TPos;		 	// 遷移の移行値 (0.0 - 1.0).
 			float4 _FadeInColor; 	// フェードインの色.
@@ -111,18 +110,6 @@ Shader "Unlit/Panorama180View/panoramaSphereRendering"
 
 				float4 col = tex2D(_MainTex, uv);
                 col.rgb *= _Intensity;
-
-				if (_TransitionType == 1) {		// フェードイン.
-					col.rgb = lerp(_FadeInColor.rgb, col.rgb, _TPos);
-
-				} else if (_TransitionType == 2) {		// フェードアウト.
-					col.rgb = lerp(col.rgb, _FadeOutColor.rgb, _TPos);
-
-				} else if (_TransitionType == 3) {		// ブレンド.
-					float4 col2 = tex2D(_DestTex, uv);
-					col2.rgb *= _Intensity;
-					col.rgb = lerp(col.rgb, col2.rgb, _TPos);
-				}
 
 				return col;
 			}

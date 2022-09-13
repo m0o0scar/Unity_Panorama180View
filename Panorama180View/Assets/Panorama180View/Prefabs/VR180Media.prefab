@@ -48,9 +48,7 @@ MonoBehaviour:
   fileType: 0
   image: {fileID: 2800000, guid: fa9a23959594fa74cb718f0f55ced201, type: 3}
   video: {fileID: 0}
-  projectonType: 1
-  radius: 1
-  intensity: 1
+  projectonType: 2
 --- !u!1001 &8108864010696420684
 PrefabInstance:
   m_ObjectHideFlags: 0
