@@ -21,8 +21,6 @@ namespace Panorama180View
         [SerializeField] VideoClip video = null;
 
         [SerializeField] PanoramaType projectonType = PanoramaType.Equirectangular180SideBySide;
-        [SerializeField, Range(1.0f, 10000.0f)] float radius = 1.0f; // sphere radius
-        [SerializeField, Range(0.0f, 10.0f)] float intensity = 1.0f; // brightness
 
         private GameObject sphere = null;
         private Material sphereMaterial = null;
@@ -61,7 +59,6 @@ namespace Panorama180View
         private void initSphere ()
         {
             sphere = transform.Find("Sphere").gameObject;
-            sphere.transform.localScale = new Vector3(radius, radius, radius);
             sphereMaterial = sphere.GetComponent<MeshRenderer>().material;
         }
 
@@ -97,7 +94,6 @@ namespace Panorama180View
                 //audioSource.SetActive(false);
 
                 sphereMaterial.SetTexture("_MainTex", image);
-                sphereMaterial.SetFloat("_Intensity", intensity);
                 sphereMaterial.SetInt("_Mode", (int)projectonType);
                 sphereMaterial.SetInt("_TransitionType", 0);
 
