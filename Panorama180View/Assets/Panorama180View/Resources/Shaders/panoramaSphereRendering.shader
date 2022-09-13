@@ -1,7 +1,7 @@
 //----------------------------------------------------------------.
 // 球に対して、Equirectangular360/Equirectangular180 SBS/FishEye180 SBSのステレオパノラマ投影を行う.
 //----------------------------------------------------------------.
-Shader "Hidden/Panorama180View/panoramaSphereRendering"
+Shader "Unlit/Panorama180View/panoramaSphereRendering"
 {
 	Properties
 	{
